@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mahesha — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: confident, warm, an engineer-teacher's personal site
+   IDEA: a printed faculty profile poster — big red name, stacked evidence
+   PICTURE: the walking presenter clip in an arched frame, with a play-with-sound control
+   COLOUR and TYPE: warm paper #f4f2ef, ink #151515, signal red #e0182d; Archivo Black + Inter
+   LAYOUT: hero poster, stat strip, then alternating paper/ink bands to the footer */
+:root{color-scheme:light;--bg:#f4f2ef;--ink:#151515;--mute:#666;--red:#e0182d;--card:#fff;--dk:#121214;--line:#2c2c2c}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+h1,h2,h3{font-family:'Archivo Black',Impact,sans-serif;font-weight:400;margin:0;text-wrap:balance}
+h2{font-size:clamp(32px,4.4vw,52px);line-height:1.05;letter-spacing:-1.5px}
+h2 em{font-style:normal;color:var(--red)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.band{padding:clamp(56px,8vw,110px) 0}
+.dark{background:var(--dk);color:#fff}
+.lb{font-weight:700;font-size:14px;color:var(--red);margin-bottom:14px}
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(244,242,239,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,.06)}
+nav .wrap{display:flex;align-items:center;gap:6px;min-height:64px;flex-wrap:wrap}
+.logo{font-family:'Archivo Black';color:var(--red);font-size:22px;text-decoration:none;margin-right:auto;letter-spacing:-.5px}
+nav .links{display:flex;gap:2px;flex-wrap:wrap}
+nav .links a{text-decoration:none;font-weight:500;font-size:15px;color:#444;padding:10px 12px;border-radius:30px}
+nav .links a:hover,nav .links a.on{background:#e8e4df;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 24px;border-radius:40px;font:600 16px Inter;border:2px solid var(--ink);background:none;color:var(--ink);cursor:pointer;text-decoration:none}
+.btn.p{background:var(--ink);color:#fff}.btn.r{background:var(--red);border-color:var(--red);color:#fff}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(24px,4vw,64px);align-items:center;padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(40px,5vw,70px)}
+.hello{font-weight:700;color:var(--red);font-size:15px}
+.name{font-size:clamp(60px,10.5vw,150px);line-height:.92;letter-spacing:-.045em;color:var(--red);margin-top:10px}
+.role{font-family:'Archivo Black';font-size:clamp(22px,3vw,40px);letter-spacing:-1px;margin-top:10px;display:flex;align-items:center;gap:20px}
+.role:after{content:'';flex:0 1 140px;height:5px;background:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips span{font-weight:600;font-size:14px;padding:7px 14px;border-radius:30px;background:#e8e4df}
+.lead{font-size:18px;color:#444;max-width:560px;margin:22px 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.stage{position:relative;justify-self:center;width:min(100%,400px)}
+.arch{position:relative;aspect-ratio:9/14;border-radius:999px 999px 26px 26px;overflow:hidden;background:#ddd6ce;box-shadow:0 30px 60px rgba(0,0,0,.18)}
+.arch video{width:100%;height:100%;object-fit:cover;display:block}
+.arch:after{content:'';position:absolute;inset:14px;border-radius:999px 999px 16px 16px;border:2px solid rgba(255,255,255,.65);pointer-events:none}
+.snd{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:2;background:var(--red);color:#fff;border:0;border-radius:40px;min-height:46px;padding:0 20px;font:600 15px Inter;cursor:pointer;display:flex;gap:8px;align-items:center;white-space:nowrap;box-shadow:0 10px 24px rgba(224,24,45,.35)}
+.tag{position:absolute;left:-28px;top:58%;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 18px 40px rgba(0,0,0,.14);font-weight:600;font-size:15px;line-height:1.3}
+.tag small{display:block;color:#888;font-weight:500;font-size:13px}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.st{background:var(--card);border-radius:20px;padding:26px 22px}
+.st b{display:block;font-family:'Archivo Black';font-weight:400;font-size:clamp(40px,5vw,64px);line-height:1;color:var(--red);letter-spacing:-2px;white-space:nowrap}
+.st span{display:block;margin-top:8px;color:var(--mute);font-weight:500;font-size:15px}
+.about p{font-size:18px;color:#444;max-width:760px;margin:20px 0 40px}
+/* teaching */
+.crs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:40px}
+.c{background:var(--card);border-radius:20px;padding:26px;border-top:6px solid var(--red)}
+.c.k{background:var(--ink);color:#fff}
+.code{font-weight:700;font-size:14px;color:var(--red);font-variant-numeric:tabular-nums}
+.c h3{font-size:24px;line-height:1.15;margin-top:10px}
+.c p{margin:8px 0 0;color:var(--mute)}.c.k p{color:#bbb}
+/* experience */
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line)}
+.row h3{font-size:clamp(22px,3vw,36px);letter-spacing:-.5px}
+.row p{margin:0;color:#aaa;font-weight:500;text-align:right}
+.now{font:700 12px Inter;background:var(--red);color:#fff;border-radius:30px;padding:4px 10px;vertical-align:middle;margin-left:10px}
+/* patents */
+.ptools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:34px 0 22px}
+.ptools input{flex:1 1 260px;min-height:48px;border-radius:40px;border:2px solid #d8d3cc;background:#fff;padding:0 20px;font:16px Inter}
+.count{color:var(--mute);font-weight:500}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.pt{background:var(--card);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.pt h3{font-size:20px;line-height:1.15}
+.pt p{margin:0;color:var(--mute);font-size:15px}
+.pt button{margin-top:auto;align-self:flex-start;background:none;border:0;padding:8px 0 0;color:var(--red);font:600 13px Inter;cursor:pointer;min-height:36px}
+.also{margin-top:24px;color:#555}.also b{color:var(--red)}
+.empty{display:none;padding:30px;text-align:center;color:var(--mute);background:#fff;border-radius:18px}
+/* research */
+.rp{display:grid;grid-template-columns:60px minmax(0,1fr);gap:20px;padding:28px 0;border-bottom:1px solid var(--line)}
+.rp .n{font-family:'Archivo Black';color:var(--red);font-size:26px}
+.rp h3{font-size:clamp(20px,2.4vw,30px);line-height:1.2}
+.rp p{margin:6px 0 0;color:#aaa}
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:34px 0 24px}
+.filters button{min-height:44px;padding:0 18px;border-radius:30px;border:2px solid var(--ink);background:none;font:600 15px Inter;cursor:pointer;color:var(--ink)}
+.filters button.on{background:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.cd{background:var(--card);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.cd .tp{min-height:130px;display:flex;align-items:flex-end;padding:20px 22px;font-family:'Archivo Black';font-size:30px;line-height:1.05;color:#fff;letter-spacing:-.5px}
+.cd .bd{padding:20px 22px 24px}
+.cd h4{margin:0;font-size:18px}
+.cd p{margin:6px 0 0;color:var(--mute);font-size:15px}
+.tg{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tg span{font-size:13px;font-weight:600;padding:5px 11px;border-radius:20px;background:#f1eeea;color:#444}
+/* leadership */
+.ld{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:40px}
+.ld div{border:1px solid #333;border-radius:20px;padding:26px}
+.ld h3{color:var(--red);font-size:22px}
+.ld p{color:#ccc;margin:10px 0 0}
+.mq{background:var(--red);color:#fff;overflow:hidden;white-space:nowrap;padding:26px 0}
+.mq div{display:inline-block;font-family:'Archivo Black';font-size:clamp(28px,4vw,48px);animation:mq 26s linear infinite}
+.mq span{opacity:.55;margin:0 24px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:end}
+.big{font-size:clamp(48px,8vw,112px);line-height:.95;letter-spacing:-.04em}
+.big em{font-style:normal;color:var(--red)}
+.mail{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:34px}
+.mail code{font:600 clamp(18px,2.4vw,26px) Inter;border-bottom:4px solid var(--red);padding-bottom:4px;overflow-wrap:anywhere}
+.addr{color:var(--mute);margin-top:18px}
+.me{border-radius:24px;overflow:hidden;aspect-ratio:3/4;background:#ddd}
+.me img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block}
+footer{background:var(--dk);color:#999;padding:28px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,80px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:30px;font-weight:600;transition:transform .3s;z-index:50}
+.toast.show{transform:translate(-50%,0)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.mq div{animation:none}html{scroll-behavior:auto}}
+@media (max-width:980px){.stats{grid-template-columns:repeat(3,minmax(0,1fr))}.ld{grid-template-columns:repeat(2,minmax(0,1fr))}.grid,.crs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){nav .links{flex-wrap:nowrap;overflow-x:auto;width:100%;margin:0 -8px 6px;scrollbar-width:none}nav .links a{flex:none}.hero{grid-template-columns:1fr}.stage{width:min(100%,340px)}.tag{left:-6px}.contact{grid-template-columns:1fr}.me{max-width:320px}}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid,.crs,.ld{grid-template-columns:1fr}.row{grid-template-columns:1fr}.row p{text-align:left}.rp{grid-template-columns:40px minmax(0,1fr);gap:12px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top">MAHESHA.</a>
+  <div class="links">
+    <a href="#about">About</a><a href="#teaching">Teaching</a><a href="#experience">Experience</a><a href="#patents">Patents</a><a href="#research">Research</a><a href="#work">Work</a><a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<header class="wrap hero" id="top">
+  <div>
+    <div class="hello">Hello, I'm</div>
+    <h1 class="name">MAHESHA.</h1>
+    <div class="role">ASSISTANT PROFESSOR.</div>
+    <div class="chips"><span>Internet of Things</span><span>Embedded Systems</span><span>Operating Systems</span><span>Project Management</span></div>
+    <p class="lead">Assistant Professor, Department of Computer Science &amp; Engineering, Cambridge Institute of Technology North Campus, Bengaluru — an industry engineer turned educator, inventor and builder.</p>
+    <div class="cta"><a class="btn p" href="#work">View my work →</a><a class="btn" href="#contact">Get in touch</a></div>
+  </div>
+  <div class="stage">
+    <div class="arch"><video id="vid" src="intro.mp4" poster="poster.jpg" autoplay muted loop playsinline></video></div>
+    <button class="snd" id="snd" type="button">▶ Watch my intro with sound</button>
+    <div class="tag"><small>Currently at</small>CITNC · Dept. of CSE</div>
+  </div>
+</header>
+
+<section class="band about" id="about"><div class="wrap">
+  <div class="lb">About</div>
+  <h2 class="rv">Industry engineer turned educator — I teach students to <em>build what matters.</em></h2>
+  <p class="rv">Before teaching, I wrote software at Cognizant and ran networks at Arkon Technologies. Today I teach IoT, operating systems and project management, guide student teams from idea to working prototype, and help turn their best projects into patent applications.</p>
+  <div class="stats" id="stats"></div>
+</div></section>
+
+<section class="band" id="teaching" style="padding-top:0"><div class="wrap">
+  <div class="lb">Teaching</div>
+  <h2 class="rv">What I <em>teach.</em></h2>
+  <div class="crs" id="crs"></div>
+</div></section>
+
+<section class="band dark" id="experience"><div class="wrap">
+  <div class="lb">Experience</div>
+  <h2 class="rv" style="margin-bottom:24px">From code &amp; networks <em>to the classroom.</em></h2>
+  <div id="exp"></div>
+</div></section>
+
+<section class="band" id="patents"><div class="wrap">
+  <div class="lb">Patents · Indian Patent Office, Chennai</div>
+  <h2 class="rv">10 applications <em>filed</em> as inventor and co-applicant.</h2>
+  <div class="ptools"><input id="q" type="search" placeholder="Search patents — e.g. helmet, AI, IoT" aria-label="Search patents"><span class="count" id="pc"></span></div>
+  <div class="pg" id="pg"></div>
+  <div class="empty" id="pe">No patent matches that search.</div>
+  <p class="also"><b>Also drafted:</b> AgriChip (RISC-V Edge AI accelerator) · Bovine Monitoring (IoT + ML) · Bio-Bin AI Waste Classifier · We3Chat (Web3 messaging) · JARVIS Arm (voice &amp; gesture robotic arm)</p>
+</div></section>
+
+<section class="band dark" id="research"><div class="wrap">
+  <div class="lb">Research</div>
+  <h2 class="rv" style="margin-bottom:16px">Papers &amp; <em>publications.</em></h2>
+  <div id="res"></div>
+</div></section>
+
+<section class="band" id="work"><div class="wrap">
+  <div class="lb">Selected work</div>
+  <h2 class="rv">Things I've <em>built.</em></h2>
+  <div class="filters" id="flt"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="band dark" id="lead"><div class="wrap">
+  <div class="lb">Leadership &amp; events</div>
+  <h2 class="rv">Beyond the <em>classroom.</em></h2>
+  <div class="ld" id="ld"></div>
+</div></section>
+
+<div class="mq" aria-hidden="true"><div>TEACH <span>✦</span> BUILD <span>✦</span> INVENT <span>✦</span> MENTOR <span>✦</span> TEACH <span>✦</span> BUILD <span>✦</span> INVENT <span>✦</span> MENTOR <span>✦</span> TEACH <span>✦</span> BUILD <span>✦</span> INVENT <span>✦</span> MENTOR <span>✦</span> TEACH <span>✦</span> BUILD <span>✦</span> INVENT <span>✦</span> MENTOR <span>✦</span></div></div>
+
+<section class="band" id="contact"><div class="wrap contact">
+  <div>
+    <div class="lb">Contact</div>
+    <h2 class="big">Let's build something <em>real.</em></h2>
+    <div class="mail"><code>mahesh.cse.nc@cambridge.edu.in</code><button class="btn r" id="cp" type="button">Copy email</button><a class="btn" href="mailto:mahesh.cse.nc@cambridge.edu.in">Write to me</a></div>
+    <p class="addr">Dept. of CSE · Cambridge Institute of Technology North Campus · Kundana, Bengaluru – 562110</p>
+  </div>
+  <div class="me"><img src="me.jpg" alt="Mahesha in a college corridor"></div>
+</div></section>
+
+<footer><div class="wrap"><span>© 2026 Mahesha · Assistant Professor, CSE, CITNC</span><span>Teach · Build · Invent</span></div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+{
+const $=id=>document.getElementById(id);
+const stats=[[4,'+','Years in industry'],[10,'+','Patent applications filed'],[5,'','Courses this year'],[10,'+','Products built'],[3,'+','Hackathons coordinated']];
+const courses=[['BCS701','Internet of Things','7th sem CSE'],['1BCS304','Operating Systems','3rd sem CSE · Section C'],['1BCSL307A','Project Management with Git','3rd sem CSE · Sections A, B, C'],['BME654A','Project Management','CPM · PERT · project crashing'],['BCS303','Embedded Systems &amp; OS','VTU coursework · Arduino labs'],['Also','Placement training &amp; mentoring','CSE 7th sem · Sections A, B, C',1]];
+const exp=[['Assistant Professor','CITNC, Bengaluru',1],['Teaching Assistant','CMR Institute of Technology · 2 years'],['Network Engineer','Arkon Technologies · 3 years'],['Junior Software Developer','Cognizant · 1 year']];
+const pats=[['202641113796','Tutee AIO','AI-powered all-in-one college ERP'],['202641115478','Smart Scan Strategy','Electronic warfare scanning'],['202641115486','Smart Washroom','IoT hygiene &amp; occupancy monitoring'],['202641115488','Foodzie','Smart food safety &amp; nutrition companion'],['202641115738','Smart Traffic','AI-based reservation traffic system'],['202641116388','InnoWild','AI wild &amp; pet animal identification'],['202641116453','AI Smart Mirror','Outfit compatibility &amp; colour suggestions'],['202641120018','Fire Fighting Robot','Robotic fire-fighting vehicle'],['202641120080','Cyber-Physical Devices','Communication organization &amp; attack'],['202641122137','Smart Helmet','Rider safety system']];
+const res=[['Modeling and Simulation of Vertical Tunnel FET for Bio Sensing Applications','Device modelling · bio-sensing'],['BugfixAI — AI-assisted bug detection and fixing','Published in IJESAT'],['Generative AI in Engineering Education','IEEE-style research paper']];
+const work=[['PrintPoint','#e0182d','Xerox vending machine','Upload and pay online, then print at a tablet with a code.',['IoT','Web','Payments'],'IoT'],
+['Attendance Alert','#151515','Parent alert system','Automatic SMS and calls to parents of absent students.',['Mac app','SMS'],'Apps'],
+['MyWorkDesk 2.0','#8a7f75','Faculty productivity suite','Daily logs, timetable, roles and timesheets.',['Web','Tauri'],'Apps'],
+['Secure Vote','#2f3a4a','Online voting system','Fingerprint plus webcam voter verification.',['Flask','Biometrics'],'Web'],
+['VTU Results','#b8131f','Result analysis','Class-wide VTU result analysis, hosted on Vercel.',['Python','Selenium'],'Web'],
+['Faculty Register','#3d3d3d','Faculty dashboard','Timetable, attendance, marks and submissions.',['React'],'Apps'],
+['Easy Electronics','#5b4636','Components store','Arduino and electronic parts for students.',['E-commerce'],'Web'],
+['Call India','#1f4d45','Browser calling app','Browser-to-phone calls through a Twilio bridge.',['Twilio'],'Web'],
+['OLED Arcade','#6b1d2a','Embedded fun','Snake game and an animated short film on an Arduino OLED.',['Arduino'],'IoT']];
+const lead=[['Hackathons','Coordinated HackMalenadu 2026, FORGE-X and BuildWithAI / HTF 4.0.'],['Innovation &amp; IP','Turning student projects into filed patents with their guides.'],['Placements','Placement training coordination for CSE 7th sem.'],['Academics','OBE sessions, FDPs, syllabus and faculty activity reporting.']];
+
+$('stats').innerHTML=stats.map(s=>`<div class="st rv"><b data-n="${s[0]}" data-s="${s[1]}">0</b><span>${s[2]}</span></div>`).join('');
+$('crs').innerHTML=courses.map(c=>`<div class="c rv${c[3]?' k':''}"><div class="code">${c[0]}</div><h3>${c[1]}</h3><p>${c[2]}</p></div>`).join('');
+$('exp').innerHTML=exp.map(e=>`<div class="row rv"><h3>${e[0]}${e[2]?'<span class="now">NOW</span>':''}</h3><p>${e[1]}</p></div>`).join('');
+$('res').innerHTML=res.map((r,i)=>`<div class="rp rv"><div class="n">${i+1}</div><div><h3>${r[0]}</h3><p>${r[1]}</p></div></div>`).join('');
+$('ld').innerHTML=lead.map(l=>`<div class="rv"><h3>${l[0]}</h3><p>${l[1]}</p></div>`).join('');
+
+const toast=m=>{const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),1800)};
+const copy=async(txt,msg)=>{try{await navigator.clipboard.writeText(txt);toast(msg)}catch(e){toast('Copy not allowed here — select the text instead')}};
+
+const drawPats=()=>{const q=$('q').value.trim().toLowerCase();
+  const list=pats.filter(p=>!q||(p[1]+' '+p[2]+' '+p[0]).toLowerCase().includes(q));
+  $('pg').innerHTML=list.map(p=>`<div class="pt"><div class="code">${p[0]}</div><h3>${p[1]}</h3><p>${p[2]}</p><button type="button" data-no="${p[0]}">Copy application no.</button></div>`).join('');
+  $('pe').style.display=list.length?'none':'block';
+  $('pc').textContent=`${list.length} of ${pats.length}`;};
+$('q').addEventListener('input',drawPats);
+$('pg').addEventListener('click',e=>{const b=e.target.closest('button[data-no]');if(b)copy(b.dataset.no,'Application number copied')});
+drawPats();
+
+const cats=['All','Web','Apps','IoT'];let cat='All';
+try{cat=localStorage.getItem('pf-cat')||'All'}catch(e){}
+const drawWork=()=>{
+  $('flt').innerHTML=cats.map(c=>`<button type="button" class="${c===cat?'on':''}" data-c="${c}">${c}</button>`).join('');
+  $('grid').innerHTML=work.filter(w=>cat==='All'||w[5]===cat).map(w=>`<div class="cd"><div class="tp" style="background:${w[1]}">${w[0]}</div><div class="bd"><h4>${w[2]}</h4><p>${w[3]}</p><div class="tg">${w[4].map(t=>`<span>${t}</span>`).join('')}</div></div></div>`).join('');};
+$('flt').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cat=b.dataset.c;try{localStorage.setItem('pf-cat',cat)}catch(e){}drawWork()});
+drawWork();
+
+$('cp').addEventListener('click',()=>copy('mahesh.cse.nc@cambridge.edu.in','Email copied'));
+
+const vid=$('vid'),snd=$('snd');
+snd.addEventListener('click',async()=>{
+  if(vid.muted){vid.muted=false;vid.currentTime=0;try{await vid.play()}catch(e){}snd.textContent='🔇 Mute';}
+  else{vid.muted=true;snd.textContent='▶ Watch my intro with sound';}
+});
+
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const countUp=el=>{const n=+el.dataset.n,s=el.dataset.s;if(reduce){el.textContent=n+s;return}
+  const t0=performance.now();const step=t=>{const p=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-p,3);el.textContent=Math.round(n*e)+(p>=1?s:'');if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)};
+const revealer=new IntersectionObserver(es=>{for(const e of es){if(!e.isIntersecting)continue;e.target.classList.add('in');const b=e.target.querySelector('b[data-n]');if(b)countUp(b);revealer.unobserve(e.target)}},{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>revealer.observe(el));
+
+const navLinks=[...document.querySelectorAll('nav .links a')];
+const spy=new IntersectionObserver(es=>{for(const e of es){if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}}},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>spy.observe(s));
+}
+</script>
+</body>
+</html>
